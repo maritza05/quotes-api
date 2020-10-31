@@ -25,8 +25,7 @@ def get_hello_world():
 def get_quote():
     try:
         quote = _get_quote()
-        quote = _format_quote(quote)
-        return quote
+        return _format_quote(quote)
     except Exception as e:
         return str(e)
 
@@ -35,8 +34,7 @@ def _get_quote():
     quotes_url = "https://zenquotes.io/api/random"
     response = requests.get(quotes_url)
     if response.status_code == 200:
-        result = response.json()[0]
-        return result
+        return response.json()[0]
     raise Exception("An error ocurred while fetching data")
 
 
